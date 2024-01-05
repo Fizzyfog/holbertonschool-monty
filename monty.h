@@ -1,24 +1,9 @@
 #ifndef MONTY_H
 #define MONTY_H
 
-#include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
-/**
- * struct globals_s - struct contains global variables.
- * @data: value to initialize nodes.
- * @fp: a file pointer.
- * @lineptr: pointer to a dynamic buffer.
- * @token: a pointer to the next token.
-*/
-typedef struct globals_s
-{
-	int data;
-	FILE *fp;
-	char *lineptr, *token;
-} globals_t;
-
-extern globals_t globals;
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -27,7 +12,7 @@ extern globals_t globals;
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
 typedef struct stack_s
 {
@@ -42,7 +27,7 @@ typedef struct stack_s
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
 typedef struct instruction_s
 {
@@ -50,23 +35,16 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* opfunct1 */
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void free_stack(stack_t *stack);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-
-/* opfunct2 */
-void swap(stack_t **stack, unsigned int line_number);
-void add(stack_t **stack, unsigned int line_number);
-void nop(stack_t **stack, unsigned int line_number);
-
-/* monty_check */
-void error_handle(stack_t **stack, unsigned int line_number, int error_type);
-void check_op(stack_t **stack, unsigned int line_number);
-void parse_arg(int argc, char *argv[]);
-void read_line(stack_t **stack);
-void parse_num(stack_t **stack, unsigned int line_number);
+/* Function prototypes for Monty ByteCode interpreter */
+void executeOp(char *opcode, unsigned int line_number, char *line, FILE *file);
+void opcode_push(stack_t **stack, unsigned int line_number);
+void opcode_pall(stack_t **stack, unsigned int line_number);
+void opcode_pint(stack_t **stack, unsigned int line_number);
+void opcode_pop(stack_t **stack, unsigned int line_number);
+void opcode_swap(stack_t **stack, unsigned int line_number);
+void opcode_add(stack_t **stack, unsigned int line_number);
+void opcode_nop(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t **stack);
+void freeAndClose(stack_t **stack, char *line, FILE *file);
 
 #endif /* MONTY_H */

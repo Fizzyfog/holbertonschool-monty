@@ -21,16 +21,6 @@ void executeOp(char *opcode, unsigned int line_number, char *line, FILE *file)
 		{"swap", opcode_swap},
 		{"add", opcode_add},
 		{"nop", opcode_nop},
-		{"sub", opcode_sub},
-		{"div", opcode_div},
-		{"mul", opcode_mul},
-		{"mod", opcode_mod},
-		{"pchar", opcode_pchar},
-		{"pstr", opcode_pstr},
-		{"rotl", opcode_rotl},
-		{"rotr", opcode_rotr},
-		{"stack", opcode_stack},
-		{"queue", opcode_queue},
 		{NULL, NULL}
 	};
 
