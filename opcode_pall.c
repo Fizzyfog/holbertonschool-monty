@@ -8,12 +8,12 @@
 
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t *current_node = *stack;
+	stack_t *current = *stack;
 
-	while (current_node != NULL)
+	while (current != NULL)
 	{
-		printf("%d\n", current_node->n);
-		current_node = current_node->next;
+		printf("%d\n", current->n);
+		current = current->next;
 	}
 	 /* Unused variable */
 	(void) line_number;
