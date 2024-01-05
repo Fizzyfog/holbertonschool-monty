@@ -1,17 +1,13 @@
 #include "monty.h"
 
 /**
-* pint - Prints the value at the top of the stack
-* @stack: Double pointer to the top of the stack
-* @line_number: The line number of the command in the file
-*
-* If the stack is empty, it prints an error message and exits the program
-* with the status EXIT_FAILURE.
-*/
-
-void pint(stack_t **stack, unsigned int line_number)
+ * opcode_pint - Prints the value at the top of the stack.
+ * @stack: A pointer to the stack.
+ * @line_number: The current line number in the Monty file.
+ */
+void opcode_pint(stack_t **stack, unsigned int line_number)
 {
-	if (stack == NULL || *stack == NULL)
+	if (*stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
