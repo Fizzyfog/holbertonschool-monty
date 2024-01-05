@@ -9,17 +9,10 @@
 */
 int main(int argc, char *argv[])
 {
-<<<<<<< HEAD
     FILE *file;
     char *line = NULL, *opcode;
     size_t length= 0;
     unsigned int line_number = 0;
-=======
-	/*a  pointer used to represent the contents of a file*/
-	FILE *file;
-	/*line is used to store the line read from the file*/
-	char *line = NULL, *opcode;
->>>>>>> origin/develop
 
 	/*opcode is used to store the opcode read from the line*/
 	size_t length = 0;
