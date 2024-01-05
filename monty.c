@@ -9,9 +9,8 @@
 */
 int main(int argc, char *argv[])
 {
-    FILE *file;// a  pointer used to represent the contents of a file
-    char *line = NULL, *opcode;//line is used to store the line read from the file
-    //opcode is used to store the opcode read from the line
+    FILE *file;
+    char *line = NULL, *opcode;
     size_t length= 0;
     unsigned int line_number = 0;
 
